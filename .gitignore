@@ -139,4 +139,7 @@ venv.bak/
 dmypy.json
 
 # Pyre type checker
-.pyre/
+.pyre/env/
+.env/
+venv/
+.venv/

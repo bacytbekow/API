@@ -143,3 +143,4 @@ dmypy.json
 .env/
 venv/
 .venv/
+.idea/

@@ -71,14 +71,28 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'data',
+#         'USER':'root',
+#         'PASSWORD':'2004D@niel',
+#         'HOST':'localhost',
+#         'PORT':'3306'
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'data',
-        'USER':'root',
-        'PASSWORD':'2004D@niel',
-        'HOST':'localhost',
-        'PORT':'3306'
+        'NAME': 'kimmimerk$default',  # Имя базы данных
+        'USER': 'kimmimerk',          # Ваш username
+        'PASSWORD': '2004daniel',  # Пароль который вы установили для MySQL
+        'HOST': 'kimmimerk.mysql.pythonanywhere-services.com',  # Хост
+        'PORT': '3306',
+        # 'OPTIONS': {
+        #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        #     'charset': 'utf8mb4',
+        # }
     }
 }
 

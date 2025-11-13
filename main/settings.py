@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-gb-4^p%8t68ubormeg@x+d&sxr0i=mrn7*thf$(2d3crt-i-)b
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['kimmimerk.pythonanywhere.com/','*']
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [

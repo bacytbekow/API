@@ -5,6 +5,43 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+def get_environment():
+    import socket
+
+    hostname = socket.gethostname()
+    if "pythonanywhere" in hostname.lower():
+        return "pythonanywhere"
+    else:
+        return "local"
+ENVIRONMENT = get_environment()
+if ENVIRONMENT == "pythonanywhere":
+    DEBUG = True
+    ALLOWED_HOSTS = ['kimmimerk.pythonanywhere.com']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'kimmimerk$default',
+            'USER': 'kimmimerk',
+            'PASSWORD': '2004daniel',
+            'HOST': 'kimmimerk.mysql.pythonanywhere-services.com',
+            'PORT': '3306',
+        }
+    }
+else:
+    DEBUG = True
+    ALLOWED_HOSTS = ['*']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'data',
+            'USER': 'root',
+            'PASSWORD': '2004D@niel',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -19,7 +56,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # ← ЭТУ СТРОКУ ДОБАВЬ
 
 
-ALLOWED_HOSTS = ['kimmimerk.pythonanywhere.com','*']
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
@@ -84,20 +120,20 @@ WSGI_APPLICATION = 'main.wsgi.application'
 #         'PORT':'3306'
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'kimmimerk$default',  # Имя базы данных
-        'USER': 'kimmimerk',          # Ваш username
-        'PASSWORD': '2004daniel',  # Пароль который вы установили для MySQL
-        'HOST': 'kimmimerk.mysql.pythonanywhere-services.com',  # Хост
-        'PORT': '3306',
-        # 'OPTIONS': {
-        #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        #     'charset': 'utf8mb4',
-        # }
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'kimmimerk$default',  # Имя базы данных
+#         'USER': 'kimmimerk',          # Ваш username
+#         'PASSWORD': '2004daniel',  # Пароль который вы установили для MySQL
+#         'HOST': 'kimmimerk.mysql.pythonanywhere-services.com',  # Хост
+#         'PORT': '3306',
+#         # 'OPTIONS': {
+#         #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         #     'charset': 'utf8mb4',
+#         # }
+#     }
+# }
 
 
 # Password validation

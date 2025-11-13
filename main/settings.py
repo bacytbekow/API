@@ -5,14 +5,17 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-def get_environment():
-    import socket
 
-    hostname = socket.gethostname()
-    if "pythonanywhere" in hostname.lower():
+def get_environment():
+    import os
+
+    # Надежная проверка - существует ли домашняя папка PythonAnywhere
+    if os.path.exists('/home/kimmimerk'):
         return "pythonanywhere"
     else:
         return "local"
+
+
 ENVIRONMENT = get_environment()
 if ENVIRONMENT == "pythonanywhere":
     DEBUG = True

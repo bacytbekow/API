@@ -15,8 +15,11 @@ SECRET_KEY = 'django-insecure-gb-4^p%8t68ubormeg@x+d&sxr0i=mrn7*thf$(2d3crt-i-)b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # ← ЭТУ СТРОКУ ДОБАВЬ
 
-ALLOWED_HOSTS = ['kimmimerk.pythonanywhere.com/','*']
+
+ALLOWED_HOSTS = ['kimmimerk.pythonanywhere.com','*']
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
@@ -131,7 +134,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

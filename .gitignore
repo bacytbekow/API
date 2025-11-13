@@ -144,3 +144,10 @@ dmypy.json
 venv/
 .venv/
 .idea/
+
+# .gitignore
+static/
+db.sqlite3
+*.pyc
+__pycache__/
+.env

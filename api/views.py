@@ -1,16 +1,28 @@
+
 from django.shortcuts import render
-from .serializers import WomenSerializer
+from .serializers import WomenSerializer, CategorySerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Women
+from .models import Women, Category
 from rest_framework import generics
 from rest_framework import viewsets
+from rest_framework import mixins
+from rest_framework.viewsets import GenericViewSet
 # Create your views here.
 
 
-class WomenAPIViewSet(viewsets.ModelViewSet):
+class WomenAPIViewSet(viewsets.mixins.CreateModelMixin,
+                   mixins.RetrieveModelMixin,
+                   mixins.UpdateModelMixin,
+                   mixins.DestroyModelMixin,
+                   mixins.ListModelMixin,
+                   GenericViewSet):   #// ModelViewSet
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
+
+class CategoryAPIViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
 
 

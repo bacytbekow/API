@@ -11,6 +11,10 @@ class WomenSerializer(serializers.ModelSerializer):
         model = Women
         fields = ("title","content","cat")
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ["name"]
     # title = serializers.CharField(max_length=255)
     # content = serializers.CharField()
     # cat = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())

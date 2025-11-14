@@ -3,9 +3,9 @@ from django.contrib import admin
 from django.urls import path, include
 from api.views import *
 from rest_framework import routers
-
-router = routers.SimpleRouter()
+router = routers.DefaultRouter()
 router.register(r'women', WomenAPIViewSet)
+router.register(r'category', CategoryAPIViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls))

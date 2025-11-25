@@ -7,9 +7,10 @@ from .models import Women,Category
 #         self.content = content
 
 class WomenSerializer(serializers.ModelSerializer):
+    # user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = Women
-        fields = ("title","content","cat")
+        fields = "__all__"
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
